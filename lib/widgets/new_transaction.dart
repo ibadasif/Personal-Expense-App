@@ -17,16 +17,16 @@ class _NewTransactionState extends State<NewTransaction> {
   DateTime _selectedDate;
 
   void _submitData() {
+    if (_amountController.text.isEmpty) {
+      return;
+    }
     final enteredTittle = _titleController.text;
     final enteredAmount = double.parse(_amountController.text);
 
-    if (enteredTittle.isEmpty || enteredAmount <= 0) {
+    if (enteredTittle.isEmpty || enteredAmount <= 0 || _selectedDate == null) {
       print('Enter Valid Amount');
     } else {
-      widget.addTx(
-        enteredTittle,
-        enteredAmount,
-      );
+      widget.addTx(enteredTittle, enteredAmount, _selectedDate);
     }
     Navigator.of(context)
         .pop(); // closes our bottom sheet when we have entered data
