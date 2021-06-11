@@ -24,7 +24,7 @@ class _NewTransactionState extends State<NewTransaction> {
     final enteredAmount = double.parse(_amountController.text);
 
     if (enteredTittle.isEmpty || enteredAmount <= 0 || _selectedDate == null) {
-      print('Enter Valid Amount');
+      print('Enter all Entries');
     } else {
       widget.addTx(enteredTittle, enteredAmount, _selectedDate);
     }
